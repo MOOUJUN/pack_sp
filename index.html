@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Arquivos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .logo {
+      margin-bottom: 30px;
+    }
+    .logo img {
+      border-radius: 50%;
+      border: 4px solid #f39c12;
+      box-shadow: 0 0 20px rgba(243, 156, 18, 0.8);
+      transition: transform 0.3s;
+    }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .arquivos {
+      display: grid;
+      gap: 20px;
+    }
+    .arquivos div {
+      padding: 15px;
+      background: #111;
+      border-radius: 15px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .arquivos div:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+    .vizualizacao {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #aaa;
+      text-shadow: 0 0 10px #fff;
+      position: relative;
+      display: inline-block;
+    }
+    .vizualizacao span {
+      display: inline-block;
+      transition: transform 1.5s ease-out;
+    }
+    .instagram {
+      margin-top: 20px;
+    }
+    .instagram a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .instagram a:hover {
+      color: #f39c12;
+    }
+    .info {
+      margin-top: 30px;
+      padding: 10px;
+      background: #111;
+      border-radius: 15px;
+      color: #aaa;
+      text-align: center;
+      max-width: 300px;
+      font-size: 0.9rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="png/cr.jpg" alt="Logo" width="150">
+  </div>
+
+  <h1>🔥 Meus Packs 🔥</h1>
+
+  <div class="arquivos">
+    <div>Pack +18</div>
+    <div>Pack do pé</div>
+    <div>Pack da bunda</div>
+    <div>Pack da careca</div>
+  </div>
+
+  <div class="vizualizacao" id="vizu"><span>999</span> Vizualizações 🔥</div>
+
+  <div class="instagram">
+    <a href="https://www.instagram.com/iamliincolncortez/" target="_blank">Siga no Instagram</a>
+  </div>
+
+  <div class="info">
+    Recruta do Exército, +20 anos, SP 💪
+  </div>
+
+  <div class="copyright">
+    © 2024 NSTVCAQ - Todos os Direitos Reservados
+  </div>
+
+  <script>
+    let vizu = localStorage.getItem('vizu') ? parseInt(localStorage.getItem('vizu')) : 999;
+    const span = document.querySelector('#vizu span');
+
+    function subirVizualizacao() {
+      let incremento = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+      vizu += incremento;
+      span.textContent = vizu;
+      span.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        span.style.transform = 'translateY(0)';
+      }, 1000);
+      localStorage.setItem('vizu', vizu);
+
+      let tempo = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+      setTimeout(subirVizualizacao, tempo);
+    }
+
+    subirVizualizacao();
+  </script>
+</body>
+</html>
